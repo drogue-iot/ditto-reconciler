@@ -25,9 +25,9 @@ import io.vertx.core.json.JsonObject;
 public interface CommandClient {
 
     default String authorization() {
-        Config config = ConfigProvider.getConfig();
-        Optional<String> username = config.getOptionalValue("io.drogue.cloud.command.client.username", String.class);
-        Optional<String> password = config.getOptionalValue("io.drogue.cloud.command.client.password", String.class);
+        final Config config = ConfigProvider.getConfig();
+        final Optional<String> username = config.getOptionalValue("io.drogue.cloud.command.client.username", String.class);
+        final Optional<String> password = config.getOptionalValue("io.drogue.cloud.command.client.password", String.class);
         if (username.isPresent() && password.isPresent()) {
             return "Basic " + Base64.getEncoder().encodeToString(String.format("%s:%s", username.get(), password.get()).getBytes(StandardCharsets.UTF_8));
         } else {
