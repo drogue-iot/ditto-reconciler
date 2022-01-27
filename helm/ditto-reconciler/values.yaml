@@ -1,0 +1,35 @@
+image:
+  repository: ghcr.io/drogue-iot
+  # tag: # defaults to the app version
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+kafka:
+  bootstrapServers: "localhost:9091"
+  topic: ditto-events
+  groupId: ditto-reconciler
+  properties: { }
+
+drogue:
+  api:
+    url: https://api.sandbox.drogue.cloud
+    username:
+    password:
+
+logging:
+  level: INFO
+
+imagePullSecrets: [ ]
+
+podSecurityContext: { }
+
+securityContext: { }
+
+resources: { }
+
+nodeSelector: { }
+
+tolerations: [ ]
+
+affinity: { }

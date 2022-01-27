@@ -1,6 +1,6 @@
 kafka:
   bootstrap:
-    servers: kafka-kafka-bootstrap-burrboard.apps.wonderful.iot-playground.org:443
+    servers: localhost:9091
 
 mp:
   messaging:
@@ -10,26 +10,18 @@ mp:
         topic: ditto-events
         value:
           deserializer: io.drogue.cloud.ditto.reconciler.model.EventDeserializer
-        security:
-          protocol: SASL_SSL
-        sasl:
-          mechanism: SCRAM-SHA-512
-          jaas:
-            config: org.apache.kafka.common.security.scram.ScramLoginModule required username="ditto-reconciler" password="btq6BW4Fbiau";
-
-
 
 io:
   drogue:
     cloud:
-      command:
-        client:
-          username: ctron
-          password: drg_kfvq80_UrgBCifYGXSeQ6tHLdKyHCKtj169D813rYlg
+      #command:
+      #  client:
+      #    username: foo
+      #    password: bar
       ditto:
         reconciler:
           command:
-            CommandClient/mp-rest/url: https://api-drogue-dev.apps.wonderful.iot-playground.org
+            CommandClient/mp-rest/url: https://api.sandbox.drogue.cloud
             CommandClient/mp-rest/scope: javax.inject.Singleton
 
 quarkus:

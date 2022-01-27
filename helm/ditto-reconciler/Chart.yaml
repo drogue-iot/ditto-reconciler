@@ -1,0 +1,9 @@
+apiVersion: v2
+name: ditto-reconciler
+description: The Drogue Cloud reconciler for Eclipse Ditto
+
+type: application
+
+version: 0.1.0
+
+appVersion: "0.1.0"
