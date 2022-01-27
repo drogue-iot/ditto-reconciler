@@ -1,10 +1,30 @@
-# ditto-reconciler Project
+# Eclipse Ditto reconciler
+
+This application helps in reconciling desired vs actual state when using the Eclipse Ditto digital twin platform.
+
+The logic used is:
+
+  * Ditto events are read from a Kafka topic, exported by a Ditto Kafka connection
+    * Change events must be normalized, and have "extraFields" for the properties which should be reconciled
+    * It is possible to use filters
+  * When a change events comes along it will compare the desired state to the actual state
+  * If there is a discrepancy, it will send a command to Drogue Cloud in the form of:
+    * Thing ID mapped to Application/Device
+    * Command name is the feature
+    * Command payload is the desired property value
+
+Possible TODOs:
+
+* [ ] Rate limit the commands
+* [ ] Delete the desired property one it was confirmed
+
+## Quarkus
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
-## Running the application in dev mode
+### Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
 ```shell script
@@ -13,7 +33,7 @@ You can run your application in dev mode that enables live coding using:
 
 > **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
 
-## Packaging and running the application
+### Packaging and running the application
 
 The application can be packaged using:
 ```shell script
@@ -31,7 +51,7 @@ If you want to build an _über-jar_, execute the following command:
 
 The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
 
-## Creating a native executable
+### Creating a native executable
 
 You can create a native executable using: 
 ```shell script
@@ -46,11 +66,3 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 You can then execute your native executable with: `./target/ditto-reconciler-1.0.0-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
-
-## Provided Code
-
-### RESTEasy JAX-RS
-
-Easily start your RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
