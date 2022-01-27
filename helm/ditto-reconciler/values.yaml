@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/drogue-iot
   # tag: # defaults to the app version
-  pullPolicy: IfNotPresent
+  # pullPolicy: IfNotPresent # defaults to Always for "latest" and IfNotPresent otherwise
 
 replicaCount: 1
 
