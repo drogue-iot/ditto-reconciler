@@ -1,5 +1,5 @@
 image:
-  repository: ghcr.io/drogue-iot
+  name: ghcr.io/drogue-iot/ditto-reconciler
   # tag: # defaults to the app version
   # pullPolicy: IfNotPresent # defaults to Always for "latest" and IfNotPresent otherwise
 
