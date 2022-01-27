@@ -26,7 +26,13 @@ spec:
         - name: operator
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
+
+          {{- with .Values.image.name }}
           image: {{ .Values.image.name }}:{{ include "ditto-reconciler.imageTag" . }}
+          {{ else }}
+          image:
+            ghcr.io/drogue-cloud/ditto-reconciler-{{ if .Values.native }}native{{ else }}jvm{{ end }}:{{ include "ditto-reconciler.imageTag" . }}
+          {{- end }}
 
           {{- with .Values.image.pullPolicy }}
           imagePullPolicy: {{ . }}
