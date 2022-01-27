@@ -23,6 +23,8 @@
 ###
 FROM registry.access.redhat.com/ubi8/openjdk-11-runtime:1.10
 
+LABEL org.opencontainers.image.source="https://github.com/drogue-iot/ditto-reconciler"
+
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
 
 # Configure the JAVA_OPTIONS, you can add -XshowSettings:vm to also display the heap size.
