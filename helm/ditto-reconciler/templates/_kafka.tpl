@@ -7,7 +7,7 @@ Arguments (dict):
 {{- define "ditto-reconciler.translate-kafka-properties" -}}
 {{- if .properties -}}
 {{- range $key, $value := .properties }}
-- name: {{ .prefix }}{{ $key | upper | replace "." "_" }}
+- name: {{ $.prefix }}{{ $key | upper | replace "." "_" }}
   value: {{ $value | quote }}
 {{- end }}
 {{- end -}}
