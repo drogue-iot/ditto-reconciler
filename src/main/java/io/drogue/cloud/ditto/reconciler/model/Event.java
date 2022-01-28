@@ -1,10 +1,11 @@
 package io.drogue.cloud.ditto.reconciler.model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Event {
     private String thingId;
-    private Map<String, Feature> features;
+    private Map<String, Feature> features = new HashMap<>();
 
     public void setThingId(final String thingId) {
         this.thingId = thingId;
