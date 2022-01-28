@@ -72,6 +72,8 @@ spec:
 
             - name: MP_MESSAGING_INCOMING_EVENTS_GROUP_ID
               value: {{ .Values.kafka.groupId | quote }}
+            - name: MP_MESSAGING_INCOMING_EVENTS_PARTITIONS
+              value: {{ .Values.consumer.partitions | quote }}
             - name: MP_MESSAGING_INCOMING_EVENTS_TOPIC
               value: {{ .Values.kafka.topic | quote }}
 

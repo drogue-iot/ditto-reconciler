@@ -12,6 +12,9 @@ kafka:
   groupId: ditto-reconciler
   properties: { }
 
+consumer:
+  partitions: 1
+
 drogue:
   api:
     url: https://api.sandbox.drogue.cloud
