@@ -3,6 +3,9 @@ package io.drogue.cloud.ditto.reconciler.model;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
+@RegisterForReflection
 public class Event {
     private String thingId;
     private Map<String, Feature> features = new HashMap<>();

@@ -5,6 +5,9 @@ import java.util.Map;
 
 import com.google.common.base.MoreObjects;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
+@RegisterForReflection
 public class Feature {
     private Map<String, Object> properties = new HashMap<>();
     private Map<String, Object> desiredProperties = new HashMap<>();
