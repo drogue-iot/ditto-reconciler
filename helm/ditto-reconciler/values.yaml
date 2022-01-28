@@ -1,5 +1,5 @@
 image:
-  native: true # Default to the native image
+  native: false # Default to use the jvm image
   # name: ghcr.io/drogue-iot/ditto-reconciler # overrides the "native" setting
   # tag: # defaults to the app version
   # pullPolicy: IfNotPresent # defaults to Always for "latest" and IfNotPresent otherwise
