@@ -76,7 +76,7 @@ public class Reconciler {
     }
 
     private CompletableFuture<Void> update(final String application, final String device, final String featureName, final Map<String, Object> properties) {
-        log.debug("Need to update: {}/{}/{} = {}", application, device, featureName, properties);
+        log.info("Need to update: {}/{}/{} = {}", application, device, featureName, properties);
         return this.command.sendCommand(application, device, featureName, JsonObject.mapFrom(properties))
                 .toCompletableFuture()
                 .thenApply((x) -> null);
