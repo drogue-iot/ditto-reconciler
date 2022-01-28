@@ -59,6 +59,8 @@ spec:
 
             - name: KAFKA_BOOTSTRAP_SERVERS
               value: {{ .Values.kafka.bootstrapServers | quote  }}
+            - name: KAFKA_GROUP_ID
+              value: {{ .Values.kafka.groupId | quote }}
 
             {{- include "ditto-reconciler.translate-kafka-properties" (dict "prefix" "KAFKA_" "properties" .Values.kafka.properties ) | nindent 12 }}
 
@@ -70,8 +72,6 @@ spec:
             - name: IO_DROGUE_CLOUD_DITTO_RECONCILER_COMMAND_COMMANDCLIENT_MP_REST_URL
               value: {{ .Values.drogue.api.url | quote }}
 
-            - name: MP_MESSAGING_INCOMING_EVENTS_GROUP_ID
-              value: {{ .Values.kafka.groupId | quote }}
             - name: MP_MESSAGING_INCOMING_EVENTS_PARTITIONS
               value: {{ .Values.consumer.partitions | quote }}
             - name: MP_MESSAGING_INCOMING_EVENTS_TOPIC
