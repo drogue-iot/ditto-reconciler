@@ -62,7 +62,7 @@ spec:
             - name: KAFKA_GROUP_ID
               value: {{ .Values.kafka.groupId | quote }}
 
-            {{- include "ditto-reconciler.translate-kafka-properties" (dict "prefix" "MP_MESSAGING_INCOMING_EVENTS_" "properties" .Values.kafka.properties ) | nindent 12 }}
+            {{- include "ditto-reconciler.translate-kafka-properties" (dict "prefix" "KAFKA_" "properties" .Values.kafka.properties ) | nindent 12 }}
 
             - name: IO_DROGUE_CLOUD_COMMAND_CLIENT_USERNAME
               value: {{ .Values.drogue.api.username | quote }}
